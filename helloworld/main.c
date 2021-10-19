@@ -2,7 +2,7 @@
 //  main.c
 //  learnc
 //
-//  Created by Azhun Zhu on 2021/10/19.
+//  Created by Adrian.ZHU on 2021/10/19.
 //
 
 #include <stdio.h>
