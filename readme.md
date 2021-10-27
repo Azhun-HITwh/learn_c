@@ -8,3 +8,4 @@ Created on the 19th. Oct. 2021.
 ----- V0.3 ***** 25th.Oct.2021 ***** Daily Learning,   
 ······             and tomorrow would tackle "array" -----  
 ----- V0.4 ***** 26th.Oct.2021 ***** Array           -----   
+----- V0.5 ***** 27th.Oct.2021 ***** Trapped in Pointer---   
