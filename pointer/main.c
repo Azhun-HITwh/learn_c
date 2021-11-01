@@ -11,9 +11,12 @@ int main(int args, const char *argv[])
 {
  
     int ia[4] = {0, 1, 2, 3};
-    int *ip = ia; //ia就是&ia[0]，因此ip指向ia[0]。与此同时ip[1]的含义又和*(ip+1)一样。
-    printf("%p\n",ip);
-    printf("%p\n",ip+1);
+    int *ip = (int *)&ia;
+    int *ip2 = ia;//ia就是&ia[0]，因此ip指向ia[0]。与此同时ip[1]的含义又和*(ip+1)一样。
+    printf("%p\n",ia);
+    printf("%p\n",&ia);
+    printf("%p\n",ia+1);
+    printf("%p\n",&ia+1);
     printf("%d\n",ip[0]);
     printf("%d\n",*(ip+1));
     

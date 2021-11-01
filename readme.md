@@ -9,4 +9,4 @@ Created on the 19th. Oct. 2021.
 ······             and tomorrow would tackle "array" -----  
 ----- V0.4 ***** 26th.Oct.2021 ***** Array           -----   
 ----- V0.5 ***** 27th.Oct.2021 ***** Trapped in Pointer---   
-
+----- V0.6 *****  1st.Nov.2021 ***** New start in Nov. ---  
