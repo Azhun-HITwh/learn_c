@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int va(void)
 {
     char        buf[256];
     int         size;
