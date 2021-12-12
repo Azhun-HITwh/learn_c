@@ -1,14 +1,13 @@
-//
-//  main.c
-//  read_line
-//
-//  Created by Azhun Zhu on 2021/12/10.
-//
-
 #include <stdio.h>
+#include "read_line.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+int main(void)
+{
+    char *line;
+
+    while ((line = read_line(stdin)) != NULL) {
+	printf("%s\n", line);
+    }
+    free_buffer();
 }
+
