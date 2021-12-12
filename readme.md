@@ -1,13 +1,19 @@
-This is a repo. used for recording some demo or test codes during learning C.  
+<h1 align="center">Welcome to learn_c 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.8-blue.svg?cacheSeconds=2592000" />
+</p>
 
-********** Have a fanstic start is half to the success. **********  
-Created on the 19th. Oct. 2021.  
+> This is a repo. used for recording some demo or test codes during learning C. 
 
------ V0.1 ***** 19th.Oct.2021 ***** Init. the repo.  
------ V0.2 ***** 20th.Oct.2021 ***** Daily Learning  
------ V0.3 ***** 25th.Oct.2021 ***** Daily Learning, and tomorrow would tackle "array" 
------ V0.4 ***** 26th.Oct.2021 ***** Array
------ V0.5 ***** 27th.Oct.2021 ***** Trapped in Pointer
------ V0.6 *****  1st.Nov.2021 ***** New start in Nov. 
------ V0.7 *****  3rd.Nov.2021 ***** Structure, Union and IO
------ V0.8 ***** 12th.Dec.2021 ***** Pointer mock test
+## Author
+
+👤 **Adrian.ZHU**
+
+* Github: [@Azhun-HITwh](https://github.com/Azhun-HITwh)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
