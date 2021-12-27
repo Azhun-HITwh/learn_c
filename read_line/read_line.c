@@ -92,3 +92,18 @@ void free_buffer(void)
     st_current_buffer_size = 0;
     st_current_used_size = 0;
 }
+
+int read_line_2(char str[], int read_num) {
+    
+    int ch, i = 0;
+
+    while ((ch = getchar()) != '\n' && ch != EOF) {
+        // i 大于 read_num 不执行操作，跳过后面的字符
+        if (i < read_num)
+            str[i++] = ch;
+    }
+    
+    str[i] = '\0';
+    
+    return i;
+}
