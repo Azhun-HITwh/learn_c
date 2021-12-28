@@ -93,7 +93,7 @@ void free_buffer(void)
     st_current_used_size = 0;
 }
 
-int read_line_2(char str[], int read_num) {
+char *read_line_2(char str[], int read_num) {
     
     int ch, i = 0;
 
@@ -105,5 +105,5 @@ int read_line_2(char str[], int read_num) {
     
     str[i] = '\0';
     
-    return i;
+    return str;
 }
