@@ -37,11 +37,11 @@ int get_word(char *buf, int buf_size, FILE *fp)
     return len;
 }
 
-int main(int argc, const char * argv[]) {
-    char buf[256];
-    
-    while ((get_word(buf, 256, stdin)) != EOF) {
-        printf("<<%s>>\n", buf);
-    }
-    return 0;
-}
+//int main(int argc, const char * argv[]) {
+//    char buf[256];
+//
+//    while ((get_word(buf, 256, stdin)) != EOF) {
+//        printf("<<%s>>\n", buf);
+//    }
+//    return 0;
+//}

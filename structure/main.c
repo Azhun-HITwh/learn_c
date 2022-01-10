@@ -18,7 +18,7 @@ struct student
     struct student *next;
 };
 
-struct student *create()
+struct student *create(void)
 {
     struct student *p1, *p2, *head;
     int n =0;
@@ -28,7 +28,7 @@ struct student *create()
     p1 = p2 = (struct student *) malloc(LEN);
     
     printf("please input num and score.\n");
-    scanf("%d %f", &p1->num, &p2->score);
+    scanf("%ld %f", &p1->num, &p2->score);
     
     while (p1->num != 0)
     {
@@ -40,7 +40,7 @@ struct student *create()
         p2 = p1;
         p1 = (struct student *) malloc(LEN);
         printf("please input num and score.\n");
-        scanf("%d %f", &p1->num, &p1->score);
+        scanf("%ld %f", &p1->num, &p1->score);
     }
     p2->next = NULL;
     return head;
@@ -55,7 +55,7 @@ void printlist(struct student *head)
     {
         do
         {
-            printf("num=%d score=%f\n", p->num, p->score);
+            printf("num=%ld score=%f\n", p->num, p->score);
             p = p->next;
         }while(p != NULL);
     }
@@ -72,7 +72,7 @@ void main()
 struct student *delNode(struct student *head, int num)
 {
     printf("delNode.\n");
-    struct student *p1, *p2;
+    struct student *p1, *p2 = NULL;
     if(head == NULL)
     {
         printf("The List is NULL.\n");

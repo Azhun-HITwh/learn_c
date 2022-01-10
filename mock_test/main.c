@@ -10,12 +10,14 @@
 int main()
 {
     FILE *fp;
-    if((fp = fopen("/Users/azhun/learnc/mock_test/test.txt", "r")) != NULL)
+    if((fp = fopen("/Users/azhun/learnc/mock_test/test.txt", "r")) != NULL){
         while(fgetc(fp) != EOF)
-            printf("char...%s", fgets(fp));
+//            printf("char...%s", fgets(fp));
             putchar(fgetc(fp));
-    else
+    }
+    else{
         printf("fail to open! \n");
+    }
     fclose(fp);
 
     return 0;
