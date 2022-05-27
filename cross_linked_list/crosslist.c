@@ -21,7 +21,7 @@ bool InitCrossList(PCrossList L, int row, int col){
         return false;
     }
     for (int j = 0; j < col; j++) {
-        L->rowhead[i] = NULL;
+        L->rowhead[j] = NULL;
     }
     L->rows = row;
     L->cols = col;
@@ -42,7 +42,7 @@ int AddCrossList_Array(PCrossList L, const ElementType A[]){
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             if (A[i*n+j] != 0) {
-                p = (OLink*)malloc(sizeof(OLNode));
+                p = (OLNode*)malloc(sizeof(OLNode));
                 p->row = i;
                 p->col = j;
                 p->down = NULL;
@@ -75,7 +75,7 @@ int AddCrossList_Array(PCrossList L, const ElementType A[]){
     return L->nums;
 }
 
-int AddCrossList_Matrix(PCrossList L, const ElemType A[L->rows][L->cols]) {
+int AddCrossList_Matrix(PCrossList L, const ElementType A[L->rows][L->cols]) {
     if (L->nums != 0) {
         return -1;
     }
@@ -118,9 +118,10 @@ int AddCrossList_Matrix(PCrossList L, const ElemType A[L->rows][L->cols]) {
             }
         }
     }
+    return 0;
 }
 
-int AddCrossList(PCrossList L, ElemType k, int m, int n) {
+int AddCrossList(PCrossList L, ElementType k, int m, int n) {
     if (k == 0 || m < 0 || m >= L->rows || n < 0 || n >= L->cols) {
         return -1;
     }
@@ -176,7 +177,7 @@ int AddCrossList(PCrossList L, ElemType k, int m, int n) {
     return 1;
 }
 
-int DeleteAllCrossList(PCrossList L, ElemType k) {
+int DeleteAllCrossList(PCrossList L, ElementType k) {
     int i = 0, count = 0;
     OLNode *prow = NULL;    //只能访问right项
     OLNode *pcol = NULL;    //只能访问down项
@@ -216,4 +217,95 @@ int DeleteAllCrossList(PCrossList L, ElemType k) {
         count++;
     }
     return count;
+}
+
+int DeleteCrossList(PCrossList L, int m, int n){
+    if (m < 0 || m >= L->rows || n < 0) {
+        return -1;
+    }
+    OLNode *prow = L->rowhead[m];
+    OLNode *pcol = L->colhead[n];
+    if (prow == NULL || pcol == NULL) {
+        return 0;
+    }
+    OLNode *p = NULL;
+    p = prow;
+    while (p != NULL) {
+        if (p->col == n) {
+            break;
+        }
+        p = p->right;
+    }
+    if (p == NULL) {
+        return 0;
+    }
+    if (L->rowhead[m] == p) {
+        L->rowhead[m] = p->right;
+    }
+    else{
+        while (prow->right != p) {
+            prow = prow->right;
+        }
+        prow->right = p->right;
+    }
+    if (L->colhead[n] == p) {
+        L->colhead[n] = p->down;
+    }
+    else {
+        while (pcol->down != p) {
+            pcol = pcol->down;
+        }
+        pcol->down = p->down;
+    }
+    L->nums--;
+    free(p);
+    return 1;
+}
+
+int DestoryCrossList(PCrossList *L) {
+    OLNode *p, *pre;
+    for (int i = 0; i < (*L)->rows; i++) {
+        p = (*L)->rowhead[i];
+        while (p != NULL) {
+            pre = p;
+            p = p->right;
+            free(pre);
+        }
+    }
+    free((*L)->colhead);
+    free((*L)->rowhead);
+    (*L)->cols = (*L)->rows = (*L)->nums = 0;
+    *L = NULL;
+    return 0;
+}
+
+void PrintCrossList(const PCrossList L) {
+    printf("#CrossList\n");
+    if (L == NULL || L->nums == 0) {
+        return;
+    }
+    printf("  |");
+    for (int i = 0; i < L->cols; i++) {
+        printf("%5d", i);
+    }
+    printf("\n");
+    for (int i = 0; i < L->cols; i++) {
+        printf("------");
+    }
+    printf("\n");
+    OLNode *p = NULL;
+    for (int i = 0; i < L->rows; i++) {
+        printf("%2d|", i);
+        p = L->rowhead[i];
+        for (int j = 0; j < L->cols; j++) {
+            if (p != NULL && p->col == j) {
+                printf("%5d", p->value);
+                p = p->right;
+            }
+            else {
+                printf("    *");
+            }
+        }
+        printf("\n");
+    }
 }
