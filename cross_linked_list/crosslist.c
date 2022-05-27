@@ -84,6 +84,7 @@ int AddCrossList_Matrix(PCrossList L, const ElementType A[L->rows][L->cols]) {
     OLNode *p = NULL;
     int m = L->rows;
     int n = L->cols;
+    int count = 0;
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
@@ -115,10 +116,11 @@ int AddCrossList_Matrix(PCrossList L, const ElementType A[L->rows][L->cols]) {
                     pcol->down = p;
                 }
                 L->nums++;
+                count++;
             }
         }
     }
-    return 0;
+    return count++;
 }
 
 int AddCrossList(PCrossList L, ElementType k, int m, int n) {
