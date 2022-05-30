@@ -20,6 +20,8 @@ int va(void)
     for (i = 0; i < size; i++) {
         printf("variable_array[%d]..%d\n", i, variable_array[i]);
     }
+    
+    free(variable_array);
 
     return 0;
 }
